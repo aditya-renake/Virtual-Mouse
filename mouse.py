@@ -25,7 +25,7 @@ class Button:
 
 def build_keyboard_layout(frame_w, frame_h):
     """Constructs keyboard button layout scaled to the camera resolution."""
-    gap = max(8, int(frame_w * 0.01))
+    gap = max(10, int(frame_w * 0.01))
     kw = max(45, int((frame_w * 0.78 - 9 * gap) / 10))
     kh = max(45, int(kw * 0.95))
 
@@ -271,7 +271,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 
 
 
