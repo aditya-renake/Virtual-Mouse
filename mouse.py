@@ -50,7 +50,7 @@ def detect_gestures(frame, landmarks_list, processed):
 
         thumb_index_dist = util.get_distance([landmarks_list[4], landmarks_list[5]])
 
-        if thumb_index_dist < 50 and util.get_angle(landmarks_list[5], landmarks6_list[6], landmarks6_list[8]) > 90:
+        if thumb_index_dist < 50 and util.get_angle(landmarks_list[5], landmarks_list[6], landmarks_list[8]) > 90:
             move_mouse(index_finger_tip)
 
 
