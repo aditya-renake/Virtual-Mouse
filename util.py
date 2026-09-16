@@ -1,3 +1,5 @@
+import subprocess
+import shutil
 import numpy as np
 
 def get_angle(a, b, c):
@@ -10,8 +12,24 @@ def get_angle(a, b, c):
 
 def get_distance(landmark_list):
     if len(landmark_list) < 2:
-        return
+        return 0
 
     (x1, y1), (x2, y2) = landmark_list[0], landmark_list[1]
     L = np.hypot(x2-x1, y2-y1)
     return np.interp(L, [0, 1], [0, 1000])
+
+
+def get_pixel_distance(p1, p2):
+    """Calculates Euclidean pixel distance between two (x, y) coordinates."""
+    return np.hypot(p2[0] - p1[0], p2[1] - p1[1])
+
+
+def speak_async(text):
+    """Speaks text asynchronously using macOS native speech synthesis without blocking OpenCV."""
+    if not text:
+        return
+    if shutil.which("say"):
+        try:
+            subprocess.Popen(["say", str(text)])
+        except Exception:
+            pass
