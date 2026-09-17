@@ -69,7 +69,7 @@ def build_keyboard_layout(frame_w, frame_h):
     start_y += kh + gap
     space_w = int(kw * 4.2)
     clr_w = int(kw * 1.5)
-    search_w = int(kw * 2.5)
+    search_w = int(kw * 4.5)
     total_w3 = space_w + clr_w + search_w + 2 * gap
     start_x3 = (frame_w - total_w3) // 2
 
@@ -99,7 +99,7 @@ def draw_ui(frame, search_bar_rect, buttons, search_text, hovered_btn, active_fl
         elif btn == hovered_btn:
             bg_color = (0, 200, 255)       # Amber/Cyan glow on hover
         elif btn.btn_type == "search":
-            bg_color = (180, 100, 20)      # Rich blue
+            bg_color = (1, 800, 20)      # Rich green
         elif btn.btn_type == "action":
             bg_color = (50, 50, 140)       # Dark crimson/red
         elif btn.btn_type == "space":
@@ -262,7 +262,7 @@ def main():
 
             cv2.imshow('Gesture Virtual Keyboard', frame)
             if cv2.waitKey(1) & 0xFF == ord('q'):
-                break
+                break 
 
     finally:
         cap.release()
